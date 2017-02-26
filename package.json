@@ -4,8 +4,8 @@
   "description": "A tool for visualising Log JSON streams",
   "main": "main.js",
   "scripts": {
-    "build": "lsc --no-header -c .",
-    "watch": "lsc --no-header -cw .",
+    "build": "lsc --no-header -c . && pug -o www www",
+    "watch": "lsc --no-header -cw . && pug -wo www www",
     "start": "node logify.js",
     "prepublish": "lsc --no-header -c ."
   },
@@ -34,6 +34,7 @@
   "homepage": "https://github.com/yousefamar/logview#readme",
   "devDependencies": {
     "electron": "^1.4.15",
-    "livescript": "^1.5.0"
+    "livescript": "^1.5.0",
+    "pug-cli": "^1.0.0-alpha6"
   }
 }
