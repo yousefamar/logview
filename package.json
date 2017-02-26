@@ -6,7 +6,7 @@
   "scripts": {
     "build": "lsc --no-header -c . && pug -o www www",
     "watch": "lsc --no-header -cw . & pug -wo www www",
-    "start": "node logify.js",
+    "start": "electron .",
     "prepublish": "lsc --no-header -c . && pug -o www www"
   },
   "repository": {
