@@ -1,0 +1,39 @@
+{
+  "name": "logview",
+  "version": "0.1.0",
+  "description": "A tool for visualising Log JSON streams",
+  "main": "main.js",
+  "scripts": {
+    "build": "lsc --no-header -c .",
+    "watch": "lsc --no-header -cw .",
+    "start": "node logify.js",
+    "prepublish": "lsc --no-header -c ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yousefamar/logview.git"
+  },
+  "keywords": [
+    "log",
+    "view",
+    "visualisation",
+    "visualization",
+    "journal",
+    "ledger",
+    "visualizer",
+    "visualiser",
+    "json",
+    "stream",
+    "logify"
+  ],
+  "author": "Yousef Amar <yousef@amar.io> (http://yousefamar.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yousefamar/logview/issues"
+  },
+  "homepage": "https://github.com/yousefamar/logview#readme",
+  "devDependencies": {
+    "electron": "^1.4.15",
+    "livescript": "^1.5.0"
+  }
+}
