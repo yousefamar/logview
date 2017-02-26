@@ -4,10 +4,10 @@
   "description": "A tool for visualising Log JSON streams",
   "main": "main.js",
   "scripts": {
-    "build": "lsc --no-header -c . && pug -o www www",
-    "watch": "lsc --no-header -cw . & pug -wo www www",
+    "build": "lsc --no-header -c . && pug -o views views",
+    "watch": "lsc --no-header -cw . & pug -wo views views",
     "start": "electron .",
-    "prepublish": "lsc --no-header -c . && pug -o www www"
+    "prepublish": "lsc --no-header -c . && pug -o views views"
   },
   "repository": {
     "type": "git",
