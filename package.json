@@ -34,6 +34,7 @@
   "homepage": "https://github.com/yousefamar/logview#readme",
   "devDependencies": {
     "electron": "^1.4.15",
+    "jstransformer-livescript": "^1.1.2",
     "livescript": "^1.5.0",
     "pug-cli": "^1.0.0-alpha6"
   }
