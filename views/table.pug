@@ -1,0 +1,60 @@
+doctype html
+html(lang="en")
+	head
+		title LogView
+		style.
+			td, th {
+				padding: 1px 4px;
+			}
+	body
+		h1 LogView Table
+
+		script
+			:livescript
+				require! { electron: { ipcRenderer }, d3 }
+
+				ledger-cols = <[ cleared timestamp source destination description commodity ]>
+				var cols
+				data = []
+				table = d3.select \body .append \table
+				thead = table.append \thead
+				tbody = table.append \tbody
+
+				update-table = !->
+					rows = tbody.select-all \tr
+						.data data
+						.enter!
+						.insert \tr \:first-child
+
+					cells = rows.select-all \td
+						.data (row) ->
+							cols.map (col) -> column: col, value: row[col]
+						.enter!
+						.append \td
+							.text ->
+								switch it.column
+								| \timestamp => new Date it.value .to-date-string!
+								| \cleared   => (if it.value then \\u2713 else \\u2717)
+								| \commodity => it.value.currency + ' ' + it.value.amount
+								| otherwise  => it.value
+
+				ipcRenderer
+					..on \entry (event, entry) !->
+						unless cols?
+							# TODO: Validate properly
+							unless \commodity of entry
+								throw new Error 'Journal logs not yet supported'
+
+							cols := ledger-cols
+
+							thead.append \tr
+								.select-all \th
+								.data cols .enter!
+								.append \th
+									.text -> it
+
+						data.push entry
+						update-table!
+
+					..on \end !-> console.log \end
+
